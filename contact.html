@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | GearShift Robotics</title>
+<meta name="description" content="Get in touch with GearShift Robotics about sponsorships, outreach events, or joining the team.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .email-block{
+    max-width:760px; margin:0 auto 4rem; text-align:center;
+    border:1px solid rgba(42,217,198,.25);
+    background:rgba(42,217,198,.04);
+    padding:2.5rem 1.5rem;
+  }
+  .email-block .lbl{color:#9FAEAB; font-size:.95rem; margin-bottom:.4rem;}
+  .email-block .addr{
+    display:block; margin-bottom:1.6rem;
+    font-family:'Orbitron', sans-serif; font-weight:800;
+    font-size:clamp(1rem, 3.4vw, 1.6rem);
+    color:var(--turquoise);
+    overflow-wrap:anywhere;
+  }
+  .email-block .addr:hover{color:var(--orange);}
+  button.btn{cursor:pointer; color:var(--black);}
+  .card button.link{
+    margin-top:.9rem; padding:0; border:0; background:none;
+    font:inherit; font-weight:700; color:var(--turquoise); cursor:pointer;
+  }
+  .card button.link:hover{color:var(--orange);}
+
+  /* ---------- MESSAGE FORM ---------- */
+  #message-dialog{
+    width:min(560px, calc(100vw - 32px));
+    margin:auto; padding:0;
+    background:var(--charcoal); color:var(--white);
+    border:1px solid rgba(42,217,198,.35);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.7);
+  }
+  #message-dialog::backdrop{background:rgba(10,12,14,.75); backdrop-filter:blur(3px);}
+  #message-dialog[open]{animation:dialogIn .25s ease;}
+  @keyframes dialogIn{from{opacity:0; transform:translateY(16px);}}
+  .dialog-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.2rem 1.5rem; border-bottom:1px solid rgba(42,217,198,.15);
+  }
+  .dialog-head h2{font-family:'Orbitron', sans-serif; font-size:1.1rem;}
+  .dialog-close{
+    width:36px; height:36px; border:0; background:none;
+    color:#9FAEAB; font-size:1.6rem; line-height:1; cursor:pointer;
+  }
+  .dialog-close:hover{color:var(--orange);}
+  #message-form{padding:1.4rem 1.5rem 1.6rem; display:grid; gap:1rem;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:1rem;}
+  @media (max-width:520px){ .field-row{grid-template-columns:1fr;} }
+  .field label{display:block; margin-bottom:.35rem; font-size:.9rem; font-weight:600; color:#B9C4C2;}
+  .field input, .field textarea{
+    width:100%; padding:.7rem .8rem;
+    background:var(--black); color:var(--white);
+    border:1px solid rgba(42,217,198,.2); border-radius:2px;
+    font:inherit; font-size:1rem;
+  }
+  .field textarea{min-height:150px; resize:vertical;}
+  .field input:focus, .field textarea:focus{outline:none; border-color:var(--turquoise); box-shadow:0 0 0 3px rgba(42,217,198,.15);}
+  .honey{position:absolute; left:-9999px;}
+  .form-actions{display:flex; align-items:center; justify-content:flex-end; gap:1rem; flex-wrap:wrap;}
+  .form-status{flex:1; font-size:.95rem; min-height:1.4em;}
+  .form-status.ok{color:var(--turquoise);}
+  .form-status.err{color:var(--orange);}
+  .form-status a{text-decoration:underline;}
+  #message-form button[disabled]{opacity:.6; cursor:wait; transform:none;}
+</style>
+</head>
+<body>
+
+  <header>
+    <a class="brand" href="index.html" aria-label="GearShift Robotics home">
+      <img src="assets/logo.png" alt="">
+      <span>GEARSHIFT ROBOTICS</span>
+    </a>
+    <input type="checkbox" id="nav-toggle">
+    <label class="burger" for="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></label>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="team.html">Team</a>
+      <a href="outreach.html">Outreach</a>
+      <a href="contact.html" class="active" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <h1>GET IN <span>TOUCH</span></h1>
+      <p>Questions, sponsorships, outreach requests, or want to join? We'd love to hear from you.</p>
+    </div>
+
+    <section>
+      <div class="email-block">
+        <div class="lbl">Email the team</div>
+        <a class="addr" href="mailto:contact@gearshiftrobotics.com">contact@gearshiftrobotics.com</a>
+        <button class="btn solid" type="button" data-open-form>Send us a message</button>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Sponsor Us</h3>
+          <div class="meta">Businesses &amp; organizations</div>
+          <p>Sponsorships cover parts, tools, and competition fees. Every contribution goes straight into the robot and our outreach.</p>
+          <button class="link" type="button" data-open-form="Sponsoring GearShift Robotics">Ask about sponsoring &rarr;</button>
+        </div>
+        <div class="card">
+          <h3>Book a Demo</h3>
+          <div class="meta">Schools &amp; events</div>
+          <p>Invite us to bring our robot to your classroom, library, or community event.</p>
+          <button class="link" type="button" data-open-form="Robot demo request">Request a demo &rarr;</button>
+        </div>
+        <div class="card">
+          <h3>Join the Team</h3>
+          <div class="meta">Students in grades 7&ndash;12</div>
+          <p>Interested in building, coding, or design? Reach out and we'll tell you how to get involved.</p>
+          <button class="link" type="button" data-open-form="Joining GearShift Robotics">Ask about joining &rarr;</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="message-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-head">
+      <h2 id="dialog-title">Send us a message</h2>
+      <button class="dialog-close" type="button" aria-label="Close" data-close-form>&times;</button>
+    </div>
+    <form id="message-form" novalidate>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Your email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-subject">Subject</label>
+        <input id="f-subject" name="subject" type="text" required>
+      </div>
+      <div class="field">
+        <label for="f-message">Message</label>
+        <textarea id="f-message" name="message" required></textarea>
+      </div>
+      <!-- Spam trap: real visitors never see or fill this -->
+      <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-actions">
+        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        <button class="btn solid" type="submit">Send message</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer>
+    <div>&copy; 2026 GearShift Robotics &middot; FTC Team</div>
+    <div class="domain">gearshiftrobotics.com</div>
+    <a href="mailto:contact@gearshiftrobotics.com">contact@gearshiftrobotics.com</a>
+  </footer>
+
+<script>
+  // Messages are delivered by FormSubmit (formsubmit.co) since GitHub Pages can't send email.
+  const TEAM_EMAIL = 'contact@gearshiftrobotics.com';
+  const dialog = document.getElementById('message-dialog');
+  const form = document.getElementById('message-form');
+  const status = document.getElementById('form-status');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  const setStatus = (html, cls) => {
+    status.innerHTML = html;
+    status.className = 'form-status' + (cls ? ' ' + cls : '');
+  };
+
+  document.querySelectorAll('[data-open-form]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setStatus('');
+      if (btn.dataset.openForm) form.subject.value = btn.dataset.openForm;
+      dialog.showModal();
+      form.name.focus();
+    });
+  });
+  document.querySelector('[data-close-form]').addEventListener('click', () => dialog.close());
+  // Close when clicking the dimmed backdrop
+  dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      const bad = form.querySelector(':invalid');
+      setStatus(bad.type === 'email' && bad.value ? 'Please enter a valid email address.' : 'Please fill in every field.', 'err');
+      bad.focus();
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(form));
+    if (data._honey) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    setStatus('');
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/' + TEAM_EMAIL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          message: data.message,
+          _subject: '[Website] ' + data.subject,
+          _replyto: data.email,
+          _template: 'table'
+        })
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || String(json.success) !== 'true') throw new Error(json.message || res.status);
+      form.reset();
+      setStatus('Thanks! Your message was sent &mdash; we\'ll get back to you soon.', 'ok');
+    } catch (err) {
+      console.error('FormSubmit error:', err);
+      const mailto = 'mailto:' + TEAM_EMAIL +
+        '?subject=' + encodeURIComponent(data.subject) +
+        '&body=' + encodeURIComponent(data.message + '\n\n— ' + data.name + ' (' + data.email + ')');
+      // FormSubmit rejects pages opened straight from disk (file://) and unactivated inboxes
+      let reason = '';
+      if (location.protocol === 'file:') reason = ' (the form only works on the live website, not a file opened from your computer)';
+      else if (/activat/i.test(err.message)) reason = ' (the team inbox still needs to confirm this form &mdash; check contact@ for an activation email)';
+      setStatus('Sorry, that didn\'t go through' + reason + '. <a href="' + mailto + '">Send it from your email app instead</a>.', 'err');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send message';
+    }
+  });
+</script>
+</body>
+</html>

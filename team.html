@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team | GearShift Robotics</title>
+<meta name="description" content="Meet the students behind GearShift Robotics, a rookie FIRST Tech Challenge team from Milpitas.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .about-intro{
+    max-width:1100px; margin:0 auto 3.5rem;
+    display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center;
+  }
+  .about-intro p{margin-top:1rem; color:#B9C4C2; font-size:1.05rem;}
+  .team-photo{
+    aspect-ratio:4/3;
+    border:1px dashed rgba(42,217,198,.4);
+    background:
+      repeating-linear-gradient(45deg, rgba(42,217,198,.05) 0 12px, transparent 12px 24px),
+      var(--charcoal);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:1.5rem;
+    color:#7C8B88; font-size:.92rem;
+  }
+  @media (max-width:760px){ .about-intro{grid-template-columns:1fr;} }
+
+  .team-grid{
+    max-width:1100px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+    gap:1.6rem;
+  }
+  .member{
+    background:var(--charcoal);
+    border:1px solid rgba(42,217,198,.15);
+    padding:1.6rem 1.4rem;
+    text-align:center;
+    display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .member:hover{
+    transform:translateY(-6px);
+    border-color:var(--turquoise);
+    box-shadow:0 14px 30px -18px rgba(42,217,198,.55);
+  }
+  .avatar{
+    width:82px; height:82px; margin:0 auto 1rem;
+    border-radius:50%;
+    background:linear-gradient(145deg, var(--turquoise), var(--orange));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Orbitron', sans-serif; font-weight:800; font-size:1.5rem; color:var(--black);
+  }
+  .member h3{font-family:'Orbitron', sans-serif; font-size:1rem; margin-bottom:.2rem;}
+  .member .role{color:var(--orange); font-size:.85rem; font-weight:600;}
+  .member .sub{
+    display:inline-block; margin-top:.4rem;
+    padding:.1rem .55rem;
+    border:1px solid rgba(42,217,198,.35);
+    color:var(--turquoise); font-size:.75rem; font-weight:700; letter-spacing:.03em;
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <a class="brand" href="index.html" aria-label="GearShift Robotics home">
+      <img src="assets/logo.png" alt="">
+      <span>GEARSHIFT ROBOTICS</span>
+    </a>
+    <input type="checkbox" id="nav-toggle">
+    <label class="burger" for="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></label>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="team.html" class="active" aria-current="page">Team</a>
+      <a href="outreach.html">Outreach</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <h1>MEET THE <span>TEAM</span></h1>
+      <p>The students designing, building, coding, and documenting our robot this season.</p>
+    </div>
+
+    <section>
+      <div class="about-intro">
+        <div>
+          <div class="eyebrow-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9" stroke-dasharray="3 5"/></svg>
+            About Us
+          </div>
+          <div class="section-head" style="margin:0;"><h2>The people behind the robot</h2></div>
+          <p>
+            We're a student-run FTC team based in Milpitas, building robots and a
+            community around engineering.
+          </p>
+        </div>
+        <div class="team-photo">Team working photo goes here<br>(swap this block for a real photo of the team in the shop)</div>
+      </div>
+
+      <div class="team-grid" id="team-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div>&copy; 2026 GearShift Robotics &middot; FTC Team</div>
+    <div class="domain">gearshiftrobotics.com</div>
+    <a href="mailto:contact@gearshiftrobotics.com">contact@gearshiftrobotics.com</a>
+  </footer>
+
+<script>
+  // ---- Team roster: swap in real names, roles, and photos ----
+  const team = [
+    { name: "Vihaan", role: "Hardware Team" },
+    { name: "Deetyam", role: "Software Team", sub: "Vision" },
+    { name: "Saharsh", role: "Hardware Team" },
+    { name: "Yuvansh", role: "Hardware Team" },
+    { name: "Hiya", role: "Software Team", sub: "Vision" },
+    { name: "Naysa", role: "Project Management + Software Team" },
+    { name: "Ishika", role: "Project Management + Software Team" },
+    { name: "Jyothis", role: "Software Team", sub: "Odometry" },
+    { name: "Suvigyan", role: "Software Team", sub: "Odometry" },
+    { name: "Akshaj", role: "Software Team", sub: "Outtake" }
+  ];
+
+  const grid = document.getElementById('team-grid');
+  team.forEach(member => {
+    const card = document.createElement('div');
+    card.className = 'member';
+    card.innerHTML = `
+      <div class="avatar">${member.name[0]}</div>
+      <h3>${member.name}</h3>
+      <div class="role">${member.role}</div>
+      ${member.sub ? `<div class="sub">${member.sub}</div>` : ''}
+    `;
+
+    grid.appendChild(card);
+  });
+</script>
+</body>
+</html>

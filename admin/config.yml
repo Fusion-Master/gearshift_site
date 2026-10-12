@@ -2,7 +2,7 @@
 backend:
   name: github
   repo: Fusion-Master/gearshift_site
-  branch: master # Change to 'master' if your main branch uses that name
+  branch: main # The branch the live site is published from
 
 # 2. Tell the CMS where to save uploaded images
 media_folder: "assets/uploads"
