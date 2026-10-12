@@ -1,1 +1,23 @@
+# 1. Link to your GitHub Repository
+backend:
+  name: github
+  repo: Fusion-Master/gearshift_site
+  branch: master # Change to 'master' if your main branch uses that name
+
+# 2. Tell the CMS where to save uploaded images
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# 3. Create your editing forms (Collections)
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "_posts" # The folder in your repo where posts live
+    create: true # Allows you to make new posts inside the CMS
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Body Text", name: "body", widget: "markdown" }
 
